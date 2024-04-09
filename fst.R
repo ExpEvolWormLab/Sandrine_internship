@@ -10,7 +10,7 @@ library(ggplot2)
 #Convert Popoolation Sync files into a pooldata object
 CA1G100 <- popsync2pooldata("CA1G100.sync", poolsizes = c(1000,1000))
 
-#compute fst considering window
+#compute Fst considering window
 fstA1G100<-computeFST(CA1G100, sliding.window.size=50)
 
 
