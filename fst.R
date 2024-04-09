@@ -229,7 +229,7 @@ D<- list(DG32 = c(fstD5G32$FST, fstD6G32$FST, fstD7G32$FST),
 
 CD <- setNames(D,Dgeneration)
 
-# Calculate mean and confidence interval for each vector
+# Calculate mean and confidence interval for each generation
 mean_ci_D  <- lapply(CD, calc_mean_ci)
 
 # Create a data frame for plotting
@@ -257,7 +257,7 @@ A<- list(
 
 CA <- setNames(A,Ageneration)
 
-# Calculate mean and confidence interval for each vector
+# Calculate mean and confidence interval for each generation
 mean_ci_A <- lapply(CA, calc_mean_ci)
 
 # Create a data frame for plotting
