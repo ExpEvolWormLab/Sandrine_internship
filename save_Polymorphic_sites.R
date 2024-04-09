@@ -8,7 +8,7 @@ library(poolSeq)
 #import the corresponding sync file containing all bam file of different population and population
 args = commandArgs(trailingOnly=TRUE)
 
-#call populations name
+#call population name
 Sample_names=t(read.table(args[1]))
 number_samples=length(Sample_names)
 
