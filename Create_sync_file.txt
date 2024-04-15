@@ -1,0 +1,38 @@
+# Create the sync file
+
+all_bam_to_sync=`ls bam_filtered/*.bam`
+
+ nohup samtools mpileup -B -Q 0 -f /mnt/data2/mallard/2023_Mapping_RILS/genome/20220216_c_elegans_WS283.genome.fa all_bam/A6G140.bam  all_bam/A00_filtered.bam all_bam/CA1G10.bam all_bam/CA1G36.bam all_bam/CA1G50.bam all_bam/CA1G68.bam  all_bam/CA1G100.bam   all_bam/CA2G10.bam  all_bam/CA2G36.bam  all_bam/CA2G50.bam all_bam/CA2G68.bam  all_bam/CA2G100.bam  all_bam/CA3G10.bam   all_bam/CA3G36.bam  all_bam/CA3G50.bam all_bam/CA3G68.bam  all_bam/CA3G100.bam  all_bam/CA4G10.bam   all_bam/CA4G32.bam  all_bam/CA4G66.bam all_bam/CA4G100.bam all_bam/CA5G10.bam   all_bam/CA5G32.bam   all_bam/CA5G66.bam  all_bam/CA5G100.bam all_bam/CA6G10.bam  all_bam/CA6G32.bam   all_bam/CD135_filtered.bam  all_bam/CD150_filtered.bam  all_bam/CD1G100_filtered.bam all_bam/CD235_filtered.bam all_bam/CD2G100_filtered.bam all_bam/CD335_filtered.bam all_bam/CD350_filtered.bam all_bam/CD3G100_filtered.bam all_bam/CD435_filtered.bam all_bam/CD450_filtered.bam all_bam/CD4G100_filtered.bam all_bam/CD532_filtered.bam all_bam/CD5G100_filtered.bam all_bam/CD632_filtered.bam all_bam/CD6G100_filtered.bam all_bam/CD732_filtered.bam all_bam/CD7G100_filtered.bam all_bam/D00_filtered.bam  | java -jar /mnt/data2/mallard/Ag_PoolSeq_mapping/popoolation2_1201/mpileup2sync.jar --input /dev/stdin --output /mnt/data3/wayou/All_bam_pop.sync --fastq-type sanger --min-qual 20 --threads 13 &
+
+
+awk '($1=="I")'  All_pool.sync > All_pool_CHRI.sync 
+awk '($1=="II")'  All_pool.sync > All_pool_CHRII.sync 
+awk '($1=="III")'  All_pool.sync > All_pool_CHRIII.sync 
+awk '($1=="IV")'  All_pool.sync > All_pool_CHRIV.sync 
+awk '($1=="V")'  All_pool.sync > All_pool_CHRV.sync 
+nohup awk '$1 == "X" { print }' All_pool.sync > All_pool_CHRX.sync
+nohup awk '$1 == "MtDNA" { print }' All_pool.sync > All_pool_CHR_MtDNA.sync
+
+
+### Use the R script to export polymorphic sites per CHR
+
+Rscript save_Polymorphic_sites.R bam_list.txt All_pool_CHRI.sync CHI_poly.txt
+Rscript save_Polymorphic_sites.R bam_list.txt All_pool_CHRII.sync CHII_poly.txt
+Rscript save_Polymorphic_sites.R bam_list.txt All_pool_CHRIII.sync CHIII_poly.txt
+Rscript save_Polymorphic_sites.R bam_list.txt All_pool_CHRIV.sync CHIV_poly.txt
+Rscript save_Polymorphic_sites.R bam_list.txt All_pool_CHRV.sync CHV_poly.txt
+
+Rscript save_Polymorphic_sites.R bam_list.txt All_pool_CHRX.sync CHX_poly.txt
+Rscript save_Polymorphic_sites.R bam_list.txt All_pool_CHR_MtDNA.sync CH_MtDNA_poly.txt
+
+
+# Concatenate all poly sites
+cat CHI_poly.txt.mean CHII_poly.txt.mean CHIII_poly.txt.mean CHIV_poly.txt.mean CHV_poly.txt.mean CHX_poly.txt.mean CH_MtDNA_poly.txt.mean  > All_CH_poly.txt
+
+awk 'BEGIN{OFS="\t"} NR==FNR {f1[$1$2] = $0; next} ($1$2 in f1) {print $0}'  All_CH_poly.txt All_pool.sync > All_pool_polymorphisms.sync
+
+
+
+
+
+
