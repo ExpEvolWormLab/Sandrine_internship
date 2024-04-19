@@ -31,7 +31,7 @@ cat CHI_poly.txt.mean CHII_poly.txt.mean CHIII_poly.txt.mean CHIV_poly.txt.mean 
 
 awk 'BEGIN{OFS="\t"} NR==FNR {f1[$1$2] = $0; next} ($1$2 in f1) {print $0}'  All_CH_poly.txt All_pool.sync > All_pool_polymorphisms.sync
 
-
+## repertoire /mnt/data3/wayou/Correct_Populations_sync
 #Filter androdioecy pop
 
 cut -f 1-3,5-30 All_pool_polymorphisms.sync > Fst_Pool/A00_Pool/CA.sync
