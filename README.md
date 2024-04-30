@@ -29,6 +29,11 @@ Here is a two-collum table, the first collum gives the population name from wher
 
 Here is the R code used for cleaning the data process on bash in Create_sync_file.
 
+### Bash.ssh
+
+In this text file, there is a bash code used to create data used in the simulation code: Create sync file taking all populations together, cleaning data for every chromosome number and concatenation, filtering where one generation in one replicate is taking with his respective ancestor together.
+
+
 ### fst
 
 Here is the R code simulating Fst between each population with its ancestor. here it gives the average and multilocus FST. This code allows plotting Fst value over generation and along the genome.
