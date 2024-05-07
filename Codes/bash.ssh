@@ -54,15 +54,16 @@ cut -f 1-3,5,18 All_pool_polymorphisms.sync > Fst_Pool/A00_Pool/CA3G36.sync
 cut -f 1-3,5,19 All_pool_polymorphisms.sync > Fst_Pool/A00_Pool/CA3G50.sync
 cut -f 1-3,5,20 All_pool_polymorphisms.sync > Fst_Pool/A00_Pool/CA3G68.sync
 
-cut -f 1-3,5,21 All_pool_polymorphisms.sync > Fst_Pool/A00_Pool/CA4G10.sync
-cut -f 1-3,5,22 All_pool_polymorphisms.sync > Fst_Pool/A00_Pool/CA4G32.sync
-cut -f 1-3,5,23 All_pool_polymorphisms.sync > Fst_Pool/A00_Pool/CA4G66.sync
-cut -f 1-3,5,24 All_pool_polymorphisms.sync > Fst_Pool/A00_Pool/CA4G100.sync
+cut -f 1-3,5,21 All_pool_polymorphisms.sync > Fst_Pool/A00_Pool/CA4G100.sync
+cut -f 1-3,5,22 All_pool_polymorphisms.sync > Fst_Pool/A00_Pool/CA4G10.sync
+cut -f 1-3,5,23 All_pool_polymorphisms.sync > Fst_Pool/A00_Pool/CA4G32.sync
+cut -f 1-3,5,24 All_pool_polymorphisms.sync > Fst_Pool/A00_Pool/CA4G66.sync
 
-cut -f 1-3,5,25 All_pool_polymorphisms.sync > Fst_Pool/A00_Pool/CA5G10.sync
-cut -f 1-3,5,26 All_pool_polymorphisms.sync > Fst_Pool/A00_Pool/CA5G32.sync
-cut -f 1-3,5,27 All_pool_polymorphisms.sync > Fst_Pool/A00_Pool/CA5G66.sync
-cut -f 1-3,5,28 All_pool_polymorphisms.sync > Fst_Pool/A00_Pool/CA5G100.sync
+cut -f 1-3,5,25 All_pool_polymorphisms.sync > Fst_Pool/A00_Pool/CA5G100.sync
+cut -f 1-3,5,26 All_pool_polymorphisms.sync > Fst_Pool/A00_Pool/CA5G10.sync
+cut -f 1-3,5,27 All_pool_polymorphisms.sync > Fst_Pool/A00_Pool/CA5G32.sync
+cut -f 1-3,5,28 All_pool_polymorphisms.sync > Fst_Pool/A00_Pool/CA5G66.sync
+
 
 cut -f 1-3,5,29 All_pool_polymorphisms.sync > Fst_Pool/A00_Pool/CA6G10.sync
 cut -f 1-3,5,30 All_pool_polymorphisms.sync > Fst_Pool/A00_Pool/CA6G32.sync
