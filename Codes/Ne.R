@@ -17,7 +17,7 @@ A_replicates<- c(0,1,1,1,1,2,2,2,2,2,3,3,3,3,3,4,4,4,4,5,5,5,5,6,6)
 Ne <- 10000
 
 #Read sync file
-CA.sync<-read.sync("CA_correct.sync",gen=A_generation,repl=A_replicates)
+CA.sync<-read.sync("CA.sync",gen=A_generation,repl=A_replicates)
 
 #extract alleles frequency
 Allele.frequency= af(CA.sync,gen=A_generation,repl=A_replicates)
