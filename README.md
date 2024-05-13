@@ -41,3 +41,12 @@ Here is the R code simulating Fst between each population with its ancestor. her
 ### Ne
 
 This code corresponds to Ne's estimation for each population considering his effective size and his ancestor's effective sizes.
+
+### CA_cmh_chisq
+
+This code performs the Cochran-Mantel-Haenszel test and chi-square test of Dioecy
+
+
+### CA_cmh_chisq
+This code performs the Cochran-Mantel-Haenszel test and chi-square test of Androdioecy
+
