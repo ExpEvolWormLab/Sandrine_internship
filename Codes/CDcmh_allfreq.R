@@ -123,16 +123,23 @@ rownames(cmh_100)<-rownames(D_Allele.freq)
 #extract data set with the chromosome V
 D_CHRIV <- subset(cmh_100, gsub("\\..*", "", rownames(cmh_100)) == "IV")
 
-# Find index of the row with the max CMH value 
-index_max <- which.max(D_CHRIV$value)
+#high p.values_cmh_100
+indices <- which(D_CHRIV$value >=75 )
+
+data_filtered1 <-numeric(0)
+for (i in indices){
+  data_filtered1 <- rbind(data_filtered1,D_CHRIV[ i , ])
+}
+
+# Find index of the row with correlated allele 
+index_max <- which.max(data_filtered1$value)
 
 # define indiex of rows defore and after
-start_index <- max(1, index_max - 500)
-end_index <- min(nrow(data), index_max + 1)
+start_index <- max(1, index_max -5)
+end_index <- min(nrow(data_filtered1), index_max + (nrow(data_filtered1)-index_max))
 
-# Filter the data.frame
-data_filtered <- D_CHRIV[start_index:end_index, ]
-
+# Filter the data.frame of correlated allele
+data_filtered <- data_filtered1[start_index:end_index, ]
 #Create frequency data
 data_D<-as.data.frame(matrix(NA,ncol(D_Allele.freq), nrow(data_filtered )))
 
